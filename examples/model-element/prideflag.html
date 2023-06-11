@@ -1,15 +1,8 @@
 <html>
   <head>
     <title>Model Element Example</title>
-    <style>
-      html {
-        max-width: 38rem;
-        padding: 2rem;
-        margin: auto;
-        line-height: 1.5rem;
-        font-size: 24px;
-      }
-    </style>
+    <link rel="preload" href="../../main.css" as="style" />
+    <link rel="stylesheet" href="../../main.css" />
   </head>
   <body>
     <h1>Model Element</h1>
@@ -22,28 +15,34 @@
     </model>
   </body>
   <script>
-    const main = async () => {
+    async function main() {
       // Get Model
       let model = document.querySelector("model");
-      await model.ready;
+      try {
+        await model.ready;
 
-      // Set Camera
-      let camera = await model.getCamera();
-      camera.scale = 3;
-      camera.pitch = 3;
-      await model.setCamera(camera);
+        // Set Camera
+        let camera = await model.getCamera();
+        camera.scale = 3;
+        camera.pitch = 3;
+        await model.setCamera(camera);
 
-      // Check if user has reduce motion enabled
-      const isReduced =
-        window.matchMedia(`(prefers-reduced-motion: reduce)`) === true ||
-        window.matchMedia(`(prefers-reduced-motion: reduce)`).matches === true;
+        // Check if user has reduce motion enabled
+        const isReduced =
+          window.matchMedia(`(prefers-reduced-motion: reduce)`) === true ||
+          window.matchMedia(`(prefers-reduced-motion: reduce)`).matches ===
+            true;
 
-      // Set Animation
-      if (!isReduced) {
-        model.setIsLoopingAnimation(true);
-        model.playAnimation();
+        // Set Animation
+        if (!isReduced) {
+          model.setIsLoopingAnimation(true);
+          model.playAnimation();
+        }
+      } catch (e) {
+        console.error(e, "Model failed to load");
       }
-    };
+    }
+
     main();
   </script>
 </html>
