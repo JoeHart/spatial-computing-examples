@@ -16,12 +16,7 @@
 
       await model.ready;
       console.log("Model is ready");
-      console.log(model);
-      console.log(Object.getOwnPropertyNames(model));
-      console.log(JSON.stringify(model, 0, 2));
-      console.log(Object.keys(model));
-      console.log(model.toString());
-      console.dir(model);
+      model.setIsLoopingAnimation(true);
       model.playAnimation();
     };
     main();
