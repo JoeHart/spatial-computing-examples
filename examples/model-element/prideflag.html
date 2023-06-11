@@ -7,24 +7,23 @@
     <h2>Interactive Model Element</h2>
     <model
       interactive
-      width="1spx"
+      width="150px"
       src="/assets/prideflaganimated.usdz"
     ></model>
   </body>
   <script>
-    console.log("foo");
     const main = async () => {
-      console.log("starting");
+      // Get Model
       let model = document.querySelector("model");
-      console.log(model);
-
       await model.ready;
 
+      // Set Camera
       let camera = await model.getCamera();
       camera.scale = 3;
       camera.pitch = 3;
       await model.setCamera(camera);
-      console.log("Model is ready");
+
+      // Set Animation
       model.setIsLoopingAnimation(true);
       model.playAnimation();
     };
