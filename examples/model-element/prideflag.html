@@ -7,4 +7,17 @@
     <h2>Interactive Model Element</h2>
     <model interactive src="/assets/prideflaganimated.usdz"></model>
   </body>
+  <script>
+    console.log("foo");
+    const main = async () => {
+      console.log("starting");
+      let model = document.querySelector("model");
+      console.log(model);
+
+      await model.ready;
+      console.log("Model is ready");
+      console.log(model);
+    };
+    main();
+  </script>
 </html>
