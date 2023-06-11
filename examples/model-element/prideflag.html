@@ -15,6 +15,10 @@
       console.log(model);
 
       await model.ready;
+
+      let camera = await model.getCamera();
+      camera.scale = 2;
+      await model.setCamera(camera);
       console.log("Model is ready");
       model.setIsLoopingAnimation(true);
       model.playAnimation();
