@@ -23,9 +23,16 @@
       camera.pitch = 3;
       await model.setCamera(camera);
 
+      // Check if user has reduce motion enabled
+      const isReduced =
+        window.matchMedia(`(prefers-reduced-motion: reduce)`) === true ||
+        window.matchMedia(`(prefers-reduced-motion: reduce)`).matches === true;
+
       // Set Animation
-      model.setIsLoopingAnimation(true);
-      model.playAnimation();
+      if (!isReduced) {
+        model.setIsLoopingAnimation(true);
+        model.playAnimation();
+      }
     };
     main();
   </script>
