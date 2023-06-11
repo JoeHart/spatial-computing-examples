@@ -1,0 +1,8 @@
+{
+  "name": "spatial-computing-examples",
+  "version": "1.0.0",
+  "description": "Collection of html/css/js examples of apple spatial computing stuff.",
+  "main": "index.js",
+  "author": "Joe Hart <joe@joehart.dev>",
+  "license": "MIT"
+}
