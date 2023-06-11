@@ -5,7 +5,11 @@
   <body>
     <h1>Model Element</h1>
     <h2>Interactive Model Element</h2>
-    <model interactive src="/assets/prideflaganimated.usdz"></model>
+    <model
+      interactive
+      width="150px"
+      src="/assets/prideflaganimated.usdz"
+    ></model>
   </body>
   <script>
     console.log("foo");
@@ -17,7 +21,7 @@
       await model.ready;
 
       let camera = await model.getCamera();
-      camera.scale = 2;
+      camera.scale = 3;
       await model.setCamera(camera);
       console.log("Model is ready");
       model.setIsLoopingAnimation(true);
